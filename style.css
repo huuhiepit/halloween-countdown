@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 12px;
+  background: url(https://images3.alphacoders.com/105/thumb-1920-1056706.jpg)
+    no-repeat center center / cover;
+  overflow: hidden;
+  color: white;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4.5rem;
+  font-family: "Creepster", cursive;
+  color: orange;
+  text-shadow: 3px 3px black;
+  text-align: center;
+}
+
+.countdown-container {
+  display: flex;
+  width: 100%;
+  max-width: 20%;
+  justify-content: space-between;
+}
+
+.days-container,
+.hours-container,
+.minutes-container,
+.seconds-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 165, 0, 0.6);
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  color: black;
+  width: 140px;
+  height: 140px;
+  border-radius: 90px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.days,
+.hours,
+.minutes,
+.seconds {
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+
+.days-label,
+.hours-label,
+.minutes-label,
+.seconds-label {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 800px) {
+  .countdown-container {
+    max-width: 90%;
+  }
+
+  .days-container,
+  .hours-container,
+  .minutes-container,
+  .seconds-container {
+    font-size: 0.8rem;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.ghost {
+  position: absolute;
+  font-size: 100px;
+  color: white;
+  opacity: 0.8;
+  top: 50%; /* Vị trí ban đầu */
+  left: 50%; /* Vị trí ban đầu */
+  transform: translate(-50%, -50%); /* Đặt hồn ma giữa màn hình ban đầu */
+  animation: fly 10s infinite;
+  cursor: pointer;
+  z-index: 11;
+}
+
+@keyframes fly {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(500px, 100px);
+  }
+  50% {
+    transform: translate(-300px, 200px);
+  }
+  75% {
+    transform: translate(400px, -200px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Ảnh hù dọa ẩn ban đầu */
+#scare-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Cài đặt cho ảnh hù dọa */
+#scare-image {
+  display: none; /* Ẩn ban đầu */
+  max-width: 100%;
+  max-height: 100%;
+  border: 5px solid white;
+}
+
+/* Hiệu ứng giật */
+.shake {
+  animation: shake 0.1s infinite;
+}
+
+/* Keyframes cho hiệu ứng giật */
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
